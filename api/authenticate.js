@@ -37,9 +37,9 @@ module.exports = async (req, res, db)=>{
             
 
         }else if(url === "/api/authenticate/register"){
-            const { name, password, email } = body;
+            const { password, email } = body;
 
-            if(!name || !password || !email){
+            if(!password || !email){
                 response.message = "All fields are Required!";
                 return res.json(JSON.stringify(response), status);
             }
@@ -60,7 +60,6 @@ module.exports = async (req, res, db)=>{
             const hashPassword = await bcrypt.hash(password, saltRounds);
 
             await db.insert("users", { 
-                name,
                 email,
                 password:hashPassword
             })
