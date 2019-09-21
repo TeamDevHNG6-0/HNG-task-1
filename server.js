@@ -7,7 +7,7 @@ const serveStatic = require('serve-static');
 const finalhandler = require('finalhandler');
 require('dotenv').config();
 
-const serve = serveStatic('public', { 'index': ['index.html'] })
+const serve = serveStatic('public', { 'index': ['login.html'] })
 
 let client = null;
 
